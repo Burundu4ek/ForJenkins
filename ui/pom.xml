@@ -1,0 +1,14 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.natali</groupId>
+    <artifactId>ui</artifactId>
+    <version>1</version>
+
+    <parent>
+        <groupId>com.natali</groupId>
+        <artifactId>jenkins-test-parent</artifactId>
+        <version>1</version>
+    </parent>
+
+    <!--<packaging>pom</packaging>-->
+</project>

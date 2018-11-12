@@ -1,0 +1,68 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.natali</groupId>
+    <artifactId>jenkins-test-parent</artifactId>
+    <version>1</version>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>backend</module>
+        <module>ui</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <id>java_8</id>
+            <properties>
+                <java.version>1.8</java.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>java_9</id>
+            <properties>
+                <java.version>9</java.version>
+            </properties>
+        </profile>
+    </profiles>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.0.0-M1</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.maven.surefire</groupId>
+                            <artifactId>surefire-junit47</artifactId>
+                            <version>3.0.0-M1</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
